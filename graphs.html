@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP PROJECT</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="gistedu_logo.jpeg"  width="75" height="75">
+            <div>
+                <h1>GEETHANJALI INSTITUTE OF SCIENCE AND TECHNOLOGY</h1>
+                <h3>(Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapuramu)</h3>
+                <p>3rd Mile, Bombay Highway, Gangavaram(V), Kovur(M), SPSR Nellore Dist., A.P.- 524137</p>
+            </div>
+        </div>
+        <h2>SURVEY ON MOBILE NETWORK PROVIDERS</h2>
+    </header>
+
+    <nav>
+        <div><a href="home.html">HOME</a></div>
+        <div><a href="abstract.html">ABSTRACT</a></div>
+        <div><a href="introduction.html">INTRODUCTION</a></div>
+        <div><a href="questions.html">QUESTIONNAIRE</a></div>
+        <div><a href="surveydata.html">SURVEY DATA</a></div>
+        <div><a href="inference.html">INFERENCE</a></div>
+        <div><a href="graphs.html">GRAPHS</a></div>
+        <div><a href="conclusion.html">CONCLUSION</a></div>
+    </nav>
+
+  <section>
+    <div class="row">
+        <!-- Bar Charts -->
+        <div class="chart-container">
+            <div class="chart-title">Plan Periods</div>
+            <canvas id="planPeriodChart" width="800" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <div class="chart-title">Internet Plan Distribution</div>
+            <canvas id="internetPlanChart" width="800" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <div class="chart-title">SIM Card Distribution</div>
+            <canvas id="simCardChart" width="800" height="400"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Pie Charts -->
+        <div class="chart-container">
+            <div class="chart-title">SIM Card Distribution (Pie Chart)</div>
+            <canvas id="simCardPieChart" width="400" height="400"></canvas>
+        </div>
+<p></p>
+        <div class="chart-container">
+            <div class="chart-title">Signal Strength Distribution (Pie Chart)</div>
+            <canvas id="signalStrengthPieChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        &copy;
+        <p>CH KOWSHIK SAI,
+        G BHARATH,
+        G PRASANTH,
+        D LAKSHMI DEEPAK</p>
+        <p>Guide: MR SK.ASIF</p>
+        <p>Geethanjali Institute of Science and Technology.
+        Department of CSE AIML</p>
+        <p>All rights reserved.</p>
+    </footer>
+
+  
+
+    <script>
+    // Updated data
+    var durations = ['6 Months', '3 Months', '1 Year', '1 Month'];
+    var counts = [3, 20, 10, 17];
+
+    var ctx = document.getElementById('planPeriodChart').getContext('2d');
+    var planPeriodChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: durations,
+            datasets: [{
+                label: 'Duration',
+                data: counts,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Plan Periods'
+            }
+        }
+    });
+</script>
+
+
+
+    <script>
+    // Updated data
+    var plans = ['1.5 GB/DAY', '2.0 GB/DAY', '1.0 GB/DAY', 'NO INTERNET', '2.5 GB/DAY'];
+    var counts = [21, 20, 6, 1, 3];
+
+    // Custom colors for the bars
+    var colors = [
+        'rgba(255, 99, 132, 0.6)',  // Red
+        'rgba(54, 162, 235, 0.6)',  // Blue
+        'rgba(255, 206, 86, 0.6)',  // Yellow
+        'rgba(75, 192, 192, 0.6)',  // Green
+        'rgba(153, 102, 255, 0.6)', // Purple
+        'rgba(255, 159, 64, 0.6)',  // Orange
+        'rgba(255, 0, 255, 0.6)'     // Magenta
+    ];
+
+    var ctx = document.getElementById('internetPlanChart').getContext('2d');
+    var internetPlanChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: plans,
+            datasets: [{
+                label: 'Number of Users',
+                data: counts,
+                backgroundColor: colors, // Use custom colors
+                borderColor: colors.map(color => color.replace('0.6', '1')), // Use custom border colors
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            },
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Internet Plan Distribution'
+            }
+        }
+    });
+</script>
+
+    <script>
+        
+        var simCards = ['JIO', 'JIO', 'JIO', 'JIO', 'JIO', 'IDEA', 'JIO', 'AIRTEL', 'IDEA', 'IDEA', 'JIO', 'AIRTEL', 'AIRTEL', 'AIRTEL', 'JIO', 'AIRTEL', 'AIRTEL', 'BSNL', 'IDEA', 'AIRTEL', 'JIO', 'AIRTEL', 'JIO', 'JIO', 'JIO', 'JIO', 'AIRTEL', 'IDEA', 'JIO', 'AIRTEL', 'AIRTEL', 'BSNL', 'AIRTEL', 'IDEA', 'AIRTEL', 'JIO', 'BSNL', 'AIRTEL', 'AIRTEL', 'AIRTEL', 'JIO', 'JIO', 'BSNL', 'AIRTEL', 'AIRTEL', 'AIRTEL', 'JIO', 'JIO', 'AIRTEL', 'AIRTEL'];
+        
+        
+        var simCardCounts = {};
+        simCards.forEach(function(simCard) {
+            simCardCounts[simCard] = (simCardCounts[simCard] || 0) + 1;
+        });
+
+        
+        var labels = Object.keys(simCardCounts);
+        var counts = Object.values(simCardCounts);
+
+        
+var colors = ['rgba(75, 192, 192, 0.6)', // Teal
+              'rgba(153, 102, 255, 0.6)', // Purple
+              'rgba(255, 159, 64, 0.6)', // Orange
+              'rgba(255, 99, 132, 0.6)']; // Pink
+
+
+        // Create bar graph
+        var ctx = document.getElementById('simCardChart').getContext('2d');
+        var simCardChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Number of Users',
+                    data: counts,
+                    backgroundColor: colors, // Use custom colors
+                    borderColor: colors.map(color => color.replace('0.6', '1')), // Use custom border colors
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        }
+                    }]
+                },
+                title: {
+                    display: true,
+                    text: 'SIM Card Distribution'
+                }
+            }
+        });
+    </script>
+<script>
+        // Data
+        var simCards = ['JIO', 'JIO', 'JIO', 'JIO', 'JIO', 'IDEA', 'JIO', 'AIRTEL', 'IDEA', 'IDEA', 'JIO', 'AIRTEL', 'AIRTEL', 'AIRTEL', 'JIO', 'AIRTEL', 'AIRTEL', 'BSNL', 'IDEA', 'AIRTEL', 'JIO', 'AIRTEL', 'JIO', 'JIO', 'JIO', 'JIO', 'AIRTEL', 'IDEA', 'JIO', 'AIRTEL', 'AIRTEL', 'BSNL', 'AIRTEL', 'IDEA', 'AIRTEL', 'JIO', 'BSNL', 'AIRTEL', 'AIRTEL', 'AIRTEL', 'JIO', 'JIO', 'BSNL', 'AIRTEL', 'AIRTEL', 'AIRTEL', 'JIO', 'JIO', 'AIRTEL', 'AIRTEL'];
+        
+        // Count occurrences of each SIM card type
+        var simCardCounts = {};
+        simCards.forEach(function(simCard) {
+            simCardCounts[simCard] = (simCardCounts[simCard] || 0) + 1;
+        });
+
+        // Extract SIM card types and counts
+        var labels = Object.keys(simCardCounts);
+        var counts = Object.values(simCardCounts);
+
+        // Custom colors for the pie chart
+        var colors = ['rgba(255, 99, 132, 0.6)', // Red
+                      'rgba(54, 162, 235, 0.6)', // Blue
+                      'rgba(255, 206, 86, 0.6)', // Yellow
+                      'rgba(75, 192, 192, 0.6)']; // Teal
+
+        // Create pie chart
+        var ctx = document.getElementById('simCardPieChart').getContext('2d');
+        var simCardPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Number of Users',
+                    data: counts,
+                    backgroundColor: colors, // Use custom colors
+                    borderColor: 'rgba(255, 255, 255, 0.6)', // White border
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                title: {
+                    display: true,
+                    text: 'SIM Card Distribution'
+                },
+                plugins: {
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            let label = ctx.chart.data.labels[ctx.dataIndex];
+                            return label + ': ' + value;
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+<script>
+        // Data
+        var signalStrength = ['GOOD', 'GOOD', 'GOOD', 'GOOD', 'GOOD', 'MODERATE', 'GOOD', 'EXCELLENT', 'MODERATE', 'MODERATE', 'GOOD', 'EXCELLENT', 'EXCELLENT', 'EXCELLENT', 'EXCELLENT', 'EXCELLENT', 'EXCELLENT', 'POOR', 'MODERATE', 'EXCELLENT', 'GOOD', 'EXCELLENT', 'GOOD', 'GOOD', 'GOOD', 'GOOD', 'EXCELLENT', 'MODERATE', 'GOOD', 'EXCELLENT', 'EXCELLENT', 'MODERATE', 'EXCELLENT', 'MODERATE', 'EXCELLENT', 'GOOD', 'POOR', 'GOOD', 'EXCELLENT', 'EXCELLENT', 'GOOD', 'GOOD', 'EXCELLENT', 'EXCELLENT', 'EXCELLENT', 'GOOD', 'EXCELLENT', 'GOOD', 'EXCELLENT', 'EXCELLENT'];
+
+        // Count occurrences of each signal strength
+        var signalStrengthCounts = {};
+        signalStrength.forEach(function(signal) {
+            signalStrengthCounts[signal] = (signalStrengthCounts[signal] || 0) + 1;
+        });
+
+        // Extract signal strengths and counts
+        var labels = Object.keys(signalStrengthCounts);
+        var counts = Object.values(signalStrengthCounts);
+
+        // Custom colors for the pie chart
+        var colors = ['rgba(75, 192, 192, 0.6)', // Teal
+                      'rgba(153, 102, 255, 0.6)', // Purple
+                      'rgba(255, 159, 64, 0.6)', // Orange
+                      'rgba(255, 99, 132, 0.6)']; // Pink
+
+        // Create pie chart
+        var ctx = document.getElementById('signalStrengthPieChart').getContext('2d');
+        var signalStrengthPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Signal Strength Distribution',
+                    data: counts,
+                    backgroundColor: colors, // Use custom colors
+                    borderColor: 'rgba(255, 255, 255, 0.6)', // White border
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                title: {
+                    display: true,
+                    text: 'Signal Strength Distribution'
+                },
+                plugins: {
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            let label = ctx.chart.data.labels[ctx.dataIndex];
+                            return label + ': ' + value;
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

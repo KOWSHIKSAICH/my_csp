@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP PROJECT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="file:///C:/Users/kowsh/Documents/CSP%20PROJECT/WEB%20TOOLS/gistedu_logo.jpeg"  width="75" height="75">
+            <div>
+                <h1>GEETHANJALI INSTITUTE OF SCIENCE AND TECHNOLOGY</h1>
+                <h3>(Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapuramu)</h3>
+                <p>3rd Mile, Bombay Highway, Gangavaram(V), Kovur(M), SPSR Nellore Dist., A.P.- 524137</p>
+            </div>
+        </div>
+        <h2>SURVEY ON MOBILE NETWORK PROVIDERS</h2>
+    </header>
+
+    <nav>
+        <div><a href="#">HOME</a></div>
+        <div><a href="#">ABSTRACT</a></div>
+        <div><a href="#">INTRODUCTION</a></div>
+        <div><a href="#">QUESTIONNAIRE</a></div>
+        <div><a href="#">SURVEY DATA</a></div>
+        <div><a href="#">INFERENCE</a></div>
+        <div><a href="#">GRAPHS</a></div>
+        <div><a href="#">CONCLUSION</a></div>
+        <div><a href="#">ACTIVITY LOG</a></div>
+        <div><a href="#">WEEKLY REPORT</a></div>
+        <div><a href="#">GEO TAGGED PHOTOS</a></div>
+    </nav>
+
+   <section>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="login-form" method="POST">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="button" onclick="checkLogin()">Login</button>
+            </form>
+            <p id="login-error" style="color: red; display: none;">INCORRECT ID PASSWORD</p>
+        </div>
+    </section>
+
+    <footer>
+&copy;
+            <p>CH KOWSHIK SAI,
+            G BHARATH,
+            G PRASANTH,
+            D LAKSHMI DEEPAK</p>
+       <p>Guide: MR SK.ASIF</p>
+        <p>Geethanjali Institute of Science and Technology.
+		Department of CSE AIML</P>
+<P> All rights reserved.</p>
+
+    </footer>
+
+
+
+    <script>
+        function checkLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // You can replace this condition with your actual authentication logic
+            if (username === 'KOWSHIK_CSP' && password === '123456789') {
+                window.location.href = 'home.html';
+            } else {
+                document.getElementById('login-error').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
